@@ -12,17 +12,18 @@
 using namespace std;
 
 class Calc {
+    
     //constructor
 public:
-Calc(){
-    FillUpStack(ptr,&SIZE,&Numers,&Opers);
-    Calculation(&Numers,&Opers);
-}
+    Calc() {
+        FillUpStack(ptr, &SIZE, &Numers, &Opers);
+        Calculation(&Numers, &Opers);
+    }
 
-    //Prototypes
 
 private:
 
+    //prototypes
     float HightOp(float, float, char);
 
     float LowOp(float, float, char);
@@ -31,35 +32,15 @@ private:
 
     void Calculation(stack<float> *, stack<char> *);
 
-    char OpPop(stack <char>*);
+    char OpPop(stack<char> *);
 
-    float NumPop(stack <float>*);
-    //5-6+8*9-5
+    float NumPop(stack<float> *);
 
-
-
-
-    //list
+    //list of variables
     const int SIZE = 99;
     char *ptr = new char[SIZE];
     stack<float> Numers;
     stack<char> Opers;
-
-
-
-    /*
-  while (!num.empty()) {
-                float i = num.top();
-                num.pop();
-                cout << i << endl;
-            }
-            cout << "ops \n";
-            while (!brack.empty()) {
-                char i = brack.top();
-                brack.pop();
-                cout << i << endl;
-            }*/
-
 };
 
 

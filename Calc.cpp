@@ -42,25 +42,27 @@ void Calc::Calculation(stack<float> *num, stack<char> *op) {
             } else {
                 num->push(n2);//push result to num stack if not end
             }
-        } else if (!op->empty() && (op->top() == '*' || op->top() == '/')) {// "!op->empty()" check for final iteration case
-            cout << " make this first "<<endl;
+        } else if (!op->empty() &&
+                   (op->top() == '*' || op->top() == '/')) {// "!op->empty()" check for final iteration case
+            cout << " make this first " << endl;
             //in this case we already have operator and numbers in variable and we have to move them temporary to another stack
-            cout<<"let put operator '"<<o<<"' and second number '"<<n2<<"' to the temporary stacks"<<endl;
+            cout << "let put operator '" << o << "' and second number '" << n2 << "' to the temporary stacks" << endl;
             opTemp.push(o);
             numTemp.push(n2);
             //poping new data from stack
             n2 = n1;
             n1 = NumPop(num);
             o = OpPop(op);
-            cout <<"now calculate the expression "<< n1 << " " << o << " " << n2 << " = ";
+            cout << "now calculate the expression " << n1 << " " << o << " " << n2 << " = ";
             n2 = HightOp(n1, n2, o);
             cout << n2 << endl;
-           if(op->top()=='-'){
-                cout<<" as well as operator before '"<<n1<<"' is '-' lets convert result to negative and change operator before to '+'"<<endl;
-                n2*=-1;
+            if (op->top() == '-') {
+                cout << " as well as operator before '" << n1
+                     << "' is '-' lets convert result to negative and change operator before to '+'" << endl;
+                n2 *= -1;
                 op->pop();
                 op->push('+');
-            }else continue;
+            } else continue;
             //return value from temporary stack
             n1 = NumPop(&numTemp);
             o = OpPop(&opTemp);
@@ -72,9 +74,9 @@ void Calc::Calculation(stack<float> *num, stack<char> *op) {
             cout << n1 << " " << o << " " << n2 << " = ";
             n2 = LowOp(n1, n2, o);
             cout << n2 << endl;
-            if(num->empty()) {
+            if (num->empty()) {
                 cout << "Result is: " << n2;
-            }else
+            } else
                 num->push(n2);
         }
     } while (!num->empty());
