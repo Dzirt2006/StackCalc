@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/dzirt/CLionProjects/untitled3/Calc.cpp
+Calc.h
+C:/Users/dzirt/CLionProjects/untitled3/Calc.h
+
+C:/Users/dzirt/CLionProjects/untitled3/Calc.h
+iostream
+-
+stack
+-
+string
+-
+
