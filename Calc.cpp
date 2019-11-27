@@ -6,19 +6,19 @@
 
 
 //fill up the stack
-void Calc::FillUpStack(char *StringPtr, const int *SIZE, stack<float> *Numbers, stack<char> *Operattors) {
+void Calc::FillUpStack(char *StringPtr, const int *DIMM, stack<float> *Numbers, stack<char> *Operattors) {
     cout << " Enter your expression:(if u want to enter decimal-type it  without point ex. 0.2-> 02) :  ";
-    cin.getline(StringPtr, *SIZE);
+    cin.getline(StringPtr, *DIMM);
     string x = "";
     for (int i = 0; i < strlen(StringPtr); i++) {
         if (isdigit(*(StringPtr + i))) {
             x += *(StringPtr + i);
-            if (!isdigit(*(StringPtr + (i + 1)))) {
-                (*Numbers).push(stoi(x));
+            if (!isdigit(*(StringPtr + (i + 1)))) {//check next element of CString array for writing the numbers  greater than 9 -two digits numbers
+                Numbers->push(stoi(x));
                 x = "";
             } else continue;
         } else {
-            (*Operattors).push(*(StringPtr + i));
+            Operattors->push(*(StringPtr + i));
         }
     }
 }
